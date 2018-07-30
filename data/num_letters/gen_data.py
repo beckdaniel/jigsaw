@@ -6,13 +6,16 @@ import random
 LEN = int(sys.argv[1])
 SIZE = int(sys.argv[2])
 
-letters = list(string.ascii_uppercase)
+letters = list(string.ascii_uppercase)[:25] * 4
 
 data = []
-maxnum = len(letters)
+#maxnum = len(letters)
+maxnum = 20
 for j in range(SIZE):
     # With replacement
-    x = [random.choice(range(maxnum)) for i in range(LEN)]
+    #x = [random.choice(range(maxnum)) for i in range(LEN)]
+    # Without replacement
+    x = random.sample(range(maxnum), LEN)
     y_num = sorted(x)
     y_let = [letters[i] for i in y_num]
     x = [str(i) for i in x]
